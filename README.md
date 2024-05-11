@@ -1,3 +1,3 @@
-# Test File
+# Wedding Planning Application
 
-ignore this file. for testing purposes only 
+this app is for our Projects and Algos class
