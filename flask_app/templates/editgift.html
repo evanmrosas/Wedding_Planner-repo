@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Add a New Pet</title>
+</head>
+<body>
+    <form action="/giftregistry/update" method="post" class="col-6 mx-auto">
+        <h2 class="text-center">Edit a gift</h2>
+        {% with messages = get_flashed_messages(category_filter=['gift']) %}
+            {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Flash</strong>
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control" value="{{gift.name}}">
+        </div>
+        <input type="hidden" name="id" value="{{gift.id}}">
+        <input type="submit" value="Add Gift" class="btn btn-success m-2">
+    </form>
+</body>
+</html>
