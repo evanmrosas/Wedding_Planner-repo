@@ -2,12 +2,23 @@ from flask import Flask, render_template, redirect, request, session, flash
 from server import app
 from flask_app.models import gift
 
+
+#dashboard
+@app.route("/dashboard")
+def dashboard():
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
+    
+    
+    return render_template("dashboard.html")
+
 #show all
 @app.route("/giftregistry")
 def giftregistry():
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     gifts = gift.Gift.getAllGifts()
     print(gifts)
     return render_template("giftregistry.html", gifts = gifts)
@@ -15,21 +26,21 @@ def giftregistry():
 #create new gift form
 @app.route("/giftregistry/new")
 def new_gift_form():
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     return render_template("newgift.html")
 
 #create new gift ACTION
 @app.route("/giftregistry/create", methods=["POST"])
 def create_gift():
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     if not gift.Gift.validate_gift(request.form):
         return redirect("/giftregistry/create")
     data = {
-        "name": request.form["name"],
+        "gift_name": request.form["gift_name"],
     }
     gift.Gift.save(data)
     return redirect("/giftregistry")
@@ -37,9 +48,9 @@ def create_gift():
 #update gift Form
 @app.route('/giftregistry/edit/<int:id>')
 def edit_gift(id):
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     data={ 
         "id" : id
     }
@@ -49,9 +60,9 @@ def edit_gift(id):
 #update gift ACTION
 @app.route('/giftregistry/update/<int:id>',methods=['POST'])
 def update_gift():
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     if not gift.Gift.validate_gift(request.form):
         return redirect(f"/recipe/edit/{request.form['id']}")
     data = {
@@ -64,9 +75,9 @@ def update_gift():
 #delete gift 
 @app.route("/giftregistry/delete/<int:id>")
 def delete_gift(id):
-    if "userID" not in session:
-        flash("Please log in.", "login")
-        return redirect("/")
+    # if "userID" not in session:
+    #     flash("Please log in.", "login")
+    #     return redirect("/")
     data={ 
         "id" : id
     }

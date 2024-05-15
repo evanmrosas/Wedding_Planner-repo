@@ -20,7 +20,7 @@
                 <tbody>
                     {% for gift in gifts %}
                     <tr>    
-                        <td scope="col">{{gift.name}}</td>
+                        <td scope="col">{{gift.gift_name}}</td>
                         <td scope="col">                    
                             <a href="{{ url_for("edit_gift", id=gift.id) }}">Edit</a> |
                             <form action="/giftregistry/delete" method="post">

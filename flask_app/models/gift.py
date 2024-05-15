@@ -13,7 +13,7 @@ class Gift:
     db= "wedding_schema"
     def __init__(self, data):
         self.id = data["id"]
-        self.name = data["name"]
+        self.name = data["gift_name"]
         self.created_at = data["created_at"]
         self.updated_at = data["created_at"]
 
@@ -23,8 +23,8 @@ class Gift:
     @classmethod
     def save(cls, data):
         query = """
-        INSERT INTO recipes (name) 
-        VALUES (%(name)s);
+        INSERT INTO gifts (gift_name) 
+        VALUES (%(gift_name)s);
         """
         results = connectToMySQL(cls.db).query_db(query, data)
         if results:
@@ -38,7 +38,7 @@ class Gift:
         data = {
             "id" : id
         }
-        query="SELECT * FROM recipes LEFT JOIN users ON user_id = users.id WHERE gifts.id = %(id)s;"
+        query="SELECT * FROM gifts LEFT JOIN users ON user_id = users.id WHERE gifts.id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
         gift = cls(results[0])
 
@@ -71,7 +71,7 @@ class Gift:
 #update
     @classmethod
     def update_gift(cls, data):
-        query="UPDATE recipes SET name = %(name)s WHERE id = %(id)s;"
+        query="UPDATE gifts SET gift_name = %(gift_name)s WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)
         if results:
             return results
@@ -95,7 +95,7 @@ class Gift:
     @staticmethod
     def validate_gift(gift):
         is_valid = True
-        if len(gift['name']) <1:
+        if len(gift['gift_name']) <1:
             flash("Gift must have a name", "gift")
             is_valid = False
 
