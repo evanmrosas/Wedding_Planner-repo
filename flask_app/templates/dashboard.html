@@ -7,12 +7,12 @@
     <title>Dashboard</title>
 </head>
 
-<h1>Welcome to your story, {{session["username"]}}</h1>
-<center>
-    <btn btn-success><a href="/ourwedding">Our Wedding</a></btn>
-    <btn btn-success><a href="/budget">Budgeting</a></btn>
-    <btn btn-success><a href="*">Inspiration</a></btn>
-    <btn btn-success><a href="*">Photos</a></btn>
-    <btn btn-success><a href="/giftregistry">Gift Registry</a></btn>
-    <btn btn-success><a href="/rsvp">RSVP List</a></btn>
-</center>
+<h1>Welcome to your story, {{session["name"]}}</h1>
+<div class="d-flex flex-column align-items-center">
+    <button btn-success><a href="/ourwedding">Our Wedding</a></button>
+    <button btn-success><a href="/budget">Budgeting</a></button>
+    <button btn-success><a href="*">Inspiration</a></button>
+    <button btn-success><a href="*">Photos</a></button>
+    <button btn-success><a href="/giftregistry">Gift Registry</a></button>
+    <button btn-success><a href="/rsvp">RSVP List</a></button>
+</div>

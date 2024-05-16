@@ -38,7 +38,7 @@ def create_gift():
     #     flash("Please log in.", "login")
     #     return redirect("/")
     if not gift.Gift.validate_gift(request.form):
-        return redirect("/giftregistry/create")
+        return redirect("/giftregistry/new")
     data = {
         "gift_name": request.form["gift_name"],
     }

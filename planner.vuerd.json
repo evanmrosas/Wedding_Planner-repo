@@ -19,7 +19,7 @@
     },
     "database": "MySQL",
     "databaseName": "planners_db",
-    "canvasType": "@vuerd/builtin-sql-ddl",
+    "canvasType": "ERD",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
