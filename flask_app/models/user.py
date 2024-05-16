@@ -7,7 +7,7 @@ pattern = r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
 
 
 class User:
-    db= 'belt2_schema'
+    db= 'wedding_schema'
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -16,7 +16,7 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-        self.show = None
+
 
     @classmethod
     def save_user(cls,data):
