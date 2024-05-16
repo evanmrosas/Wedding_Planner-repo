@@ -23,6 +23,7 @@ class Wedding:
         # reception - can potentially be a whole other planning center ordeal, but 
         #   maybe we stick with a dictionary: address, time, kids_allowed
         # notes
+        # user_id because a wedding cant exist without a user
 
     @classmethod
     def save(cls, data):
