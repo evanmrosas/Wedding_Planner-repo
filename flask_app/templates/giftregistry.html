@@ -23,8 +23,7 @@
                         <td scope="col">{{gift.gift_name}}</td>
                         <td scope="col">                    
                             <a href="{{ url_for("edit_gift", id=gift.id) }}">Edit</a> |
-                            <form action="/giftregistry/delete" method="post">
-                                <input type="hidden" name="id" value="{{gift.id}}">
+                            <form action="/giftregistry/delete/{{gift.id}}" method="post">
                                 <button class="btn btn-danger">Delete</button>
                             </form>
                         </td>

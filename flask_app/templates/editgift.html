@@ -7,7 +7,7 @@
     <title>Edit Gift</title>
 </head>
 <body>
-    <form action="/giftregistry/update" method="post" class="col-6 mx-auto">
+    <form action="/giftregistry/update/{{one_gift.id}}" method="post" class="col-6 mx-auto">
         <h2 class="text-center">Edit a gift</h2>
         {% with messages = get_flashed_messages(category_filter=['gift']) %}
             {% if messages %}
@@ -21,10 +21,10 @@
         {% endwith %}
         <div class="form-group">
             <label for="gift_name">Name:</label>
-            <input type="text" name="gift_name" class="form-control" value="{{gift.gift_name}}">
+            <input type="text" name="gift_name" class="form-control" value="{{one_gift.gift_name}}">
         </div>
-        <input type="hidden" name="id" value="{{gift.id}}">
-        <input type="submit" value="Add Gift" class="btn btn-success m-2">
+        <input type="hidden" name="id" value="{{one_gift.id}}">
+        <input type="submit" value="Edit Gift" class="btn btn-success m-2">
     </form>
 </body>
 </html>
