@@ -1,6 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 
 class Wedding:
+    db="wedding_schema"
     def __init__(self, data):
         self.id = data["id"]
         self.wedding_name = data['wedding_name']
@@ -32,14 +33,14 @@ class Wedding:
         query = """INSERT INTO  --database--(guest_list, gift_list, partner1, partner2, location, reception, notes, created_at, updated_at) 
                 VALUES (%(wedding_name)s, %(wedding_date)s, %(guest_list)s, %(gift_list)s, %(partner_1)s, %(partner_2)s, %(location)s, %(reception)s, %(notes)s, NOW(), NOW())
             """
-        return connectToMySQL("--database--").query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)
     
     @classmethod
     def get_all_for_user(cls, user_id):
         query = """SELECT * from weddings 
                 WHERE user_id = %(user_id)s """
         data = {"id" : user_id}
-        result = connectToMySQL("--database--").query_db(query, data)
+        result = connectToMySQL(cls.db).query_db(query, data)
         return cls(result)
         
 
@@ -49,7 +50,7 @@ class Wedding:
         WHERE id = %(wedding_id)s
             """
         data = {"id" : wedding_id}
-        result = connectToMySQL("--database--").query_db(query, data)
+        result = connectToMySQL(cls.db).query_db(query, data)
         return cls(result[0])
 
     @classmethod
@@ -57,11 +58,11 @@ class Wedding:
         query = """UPDATE weddings
                 SET wedding_name=%(wedding_name)s, wedding_date=%(wedding_date)s,  guest_list=%(guest_list)s,   gift_list=%(gift_list)s,   partner_1=%(partner_1)s, partner_2=%(partner_2)s, location=%(location)s, reception=%(reception)s, notes=%(notes)s 
             """
-        return connectToMySQL("--database--").query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)
     
     @classmethod
     def delete(cls, wedding_id):
         query = """DELETE from weddings 
                 WHERE id = %(wedding_id)s """
         data = {"id" : wedding_id}
-        return connectToMySQL("--database--").query_db(query, data)
+        return connectToMySQL(cls.db).query_db(query, data)
