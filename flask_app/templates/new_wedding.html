@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Wedding</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div>
+        <form action="/add_wedding" method="post">
+            <div>
+                <label for="wedding_name">Wedding Name</label>
+                <input type="text" name="wedding_name" id="wedding_name">
+            </div>
+            <div>
+                <label for="partner_1">Partner #1:</label>
+                <input type="text" name="partner_1" id="partner_1">
+            </div>
+            <div>
+                <label for="partner_2">Partner #2</label>
+                <input type="text" name="partner_2" id="partner_2">
+            </div>
+            <div>
+                <label for="location">Location: </label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div>
+                <label for="notes">Notes</label>
+                <textarea type="text" name="notes" id="notes"></textarea>
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

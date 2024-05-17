@@ -3,13 +3,15 @@ from flask_app.config.mysqlconnection import connectToMySQL
 class Wedding:
     def __init__(self, data):
         self.id = data["id"]
-        self.guest_list = data["guest_list"]
-        self.gift_list = data["gift_list"]
-        self.partner1 = data["partner1"]
-        self.partner2 = data["partner2"]
+        self.wedding_name = data['wedding_name']
+        self.wedding_date = data['wedding_date']
+        self.partner_1 = data["partner_1"]
+        self.partner_2 = data["partner_2"]
         self.location = data["location"]
         self.reception = data["receptions"]
         self.notes = data["notes"]
+        self.guest_list = data["guest_list"]
+        self.gift_list = data["gift_list"]
         self.user_id = data["user_id"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
@@ -28,7 +30,7 @@ class Wedding:
     @classmethod
     def save(cls, data):
         query = """INSERT INTO  --database--(guest_list, gift_list, partner1, partner2, location, reception, notes, created_at, updated_at) 
-                VALUES (%(guest_list)s, %(gift_list)s, %(partner1)s, %(partner2)s, %(location)s, %(reception)s, %(notes)s, NOW(), NOW())
+                VALUES (%(wedding_name)s, %(wedding_date)s, %(guest_list)s, %(gift_list)s, %(partner_1)s, %(partner_2)s, %(location)s, %(reception)s, %(notes)s, NOW(), NOW())
             """
         return connectToMySQL("--database--").query_db(query, data)
     
@@ -53,7 +55,7 @@ class Wedding:
     @classmethod
     def update(cls, data):
         query = """UPDATE weddings
-                SET guest_list=%(guest_list)s   gift_list=%(gift_list)s   partner1=%(partner1)s     partner2=%(partner2)s    location=%(location)s     reception=%(reception)s    notes=%(notes)s 
+                SET wedding_name=%(wedding_name)s, wedding_date=%(wedding_date)s,  guest_list=%(guest_list)s,   gift_list=%(gift_list)s,   partner_1=%(partner_1)s, partner_2=%(partner_2)s, location=%(location)s, reception=%(reception)s, notes=%(notes)s 
             """
         return connectToMySQL("--database--").query_db(query, data)
     
