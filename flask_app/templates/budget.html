@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget</title>
+</head>
+<body>
+    <h1>Budget</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Item</td>
+                <td>Cost</td>
+                <td>Budget After</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%for item in items%}
+                <tr>
+                    <td>{{item['item_name']}}</td>
+                    <td>{{item['price']}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+</html>
