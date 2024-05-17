@@ -4,15 +4,13 @@ class Wedding:
     db="wedding_schema"
     def __init__(self, data):
         self.id = data["id"]
-        self.wedding_name = data['wedding_name']
-        self.wedding_date = data['wedding_date']
-        self.partner_1 = data["partner_1"]
-        self.partner_2 = data["partner_2"]
+        self.partner_name_1 = data["partner_name_1"]
+        self.partner_name_2 = data["partner_name_2"]
         self.location = data["location"]
-        self.reception = data["receptions"]
+        self.date = data['date']
+        self.reception = data["reception"]
+        self.total_guest = data['total_guest']
         self.notes = data["notes"]
-        self.guest_list = data["guest_list"]
-        self.gift_list = data["gift_list"]
         self.user_id = data["user_id"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
@@ -30,8 +28,8 @@ class Wedding:
 
     @classmethod
     def save(cls, data):
-        query = """INSERT INTO  --database--(guest_list, gift_list, partner1, partner2, location, reception, notes, created_at, updated_at) 
-                VALUES (%(wedding_name)s, %(wedding_date)s, %(guest_list)s, %(gift_list)s, %(partner_1)s, %(partner_2)s, %(location)s, %(reception)s, %(notes)s, NOW(), NOW())
+        query = """INSERT INTO  --database--(partner_name_1, partner_name_2, location, date, reception, total_guest, notes, user_id, created_at, updated_at) 
+                VALUES ( %(partner_name_1)s, %(partner_name_2)s, %(location)s, %(date)s, %(reception)s, %(total_guest)s, %(notes)s, %(user_id)s, NOW(), NOW())
             """
         return connectToMySQL(cls.db).query_db(query, data)
     
@@ -56,7 +54,7 @@ class Wedding:
     @classmethod
     def update(cls, data):
         query = """UPDATE weddings
-                SET wedding_name=%(wedding_name)s, wedding_date=%(wedding_date)s,  guest_list=%(guest_list)s,   gift_list=%(gift_list)s,   partner_1=%(partner_1)s, partner_2=%(partner_2)s, location=%(location)s, reception=%(reception)s, notes=%(notes)s 
+                SET partner_name_1 = %(partner_name_1)s, partner_name_2%(partner_name_2)s, location = %(location)s, date = %(date)s, recption = %(reception)s, total_guest = %(total_guest)s, notes = %(notes)s, user_id = %(user_id)s
             """
         return connectToMySQL(cls.db).query_db(query, data)
     
