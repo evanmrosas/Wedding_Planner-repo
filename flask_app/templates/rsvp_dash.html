@@ -9,8 +9,27 @@
 <body>
     <h1>Rsvp List</h1>
     <div class="container">
-
-        
+        <h2 class="ms-5 mb-4">Attending guests</h2>
+    <table class="table table-success table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>actions</th>
+            
+        </tr>
+        {% for guest in guests %}
+        <tr>
+            <td>{{guest.first_name}}</td>
+            <td>{{guest.last_name}}</td>
+            <td>
+            
+                <a href="/guests/edit/{{guest.id}}">Edit</a>
+                <a href="/guests/delete/{{guest.id}}">Delete</a>
+            
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
     </div>
     
 </body>

@@ -7,7 +7,7 @@
     <title>Rsvp</title>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
         <h1>Rsvp</h1>
         <form action="/guests/create" method="post">
             {% with messages = get_flashed_messages(category_filter=['guest']) %}
@@ -33,11 +33,7 @@
                 <button class="mt-2">Add guest</button>
                 </form> 
             </div>
-
-
         </form>
-
-
     </div>
     
 </body>

@@ -5,14 +5,14 @@ from flask_app.models import user
 
 
 class Guest:
-    db = "planners_db"
+    db = "wedding_schema"
 
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
         self.last_name = data['last_name']
         self.attending = data['attending']
-        self.attendee = None
+        self.user.id = None
 
     @classmethod
     def save_guest(cls,data):
@@ -45,7 +45,7 @@ class Guest:
                 'created_at' :row['users.created_at'],
                 'updated_at' :row['users.updated_at'],
             }
-            one_guest.attendee = user.User(user_data)
+            one_guest.user.id = user.User(user_data)
             all_guests.append(one_guest)
         return all_guests
     
@@ -103,7 +103,5 @@ class Guest:
         if len(data['last_name']) <2:
             is_valid=False
             flash('Last name must be at least 2 characters' 'guest')
-        if len(data['attending']) <3:
-            is_valid=False
-            flash('Comments must be at least 3 charcters long', 'show')
+        
         return is_valid
