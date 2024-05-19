@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Budget</h1>
-    <h2>Our Budget is: {{ budget['total'] if budget else 'No budget set' }}</h2>
+    <h2>Our Budget is: ${{ budget['total'] if budget else 'No budget set' }}</h2>
     {% if budget_exists %}
         <button id="openEditModalBtn">Edit Budget</button>
     {% else %}
@@ -38,6 +38,19 @@
             </form>
         </div>
     </div>
+
+    <!-- Edit Budget Item Modal -->
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEditItemModal">&times;</span>
+            <form id="editBudgetItemForm" method="POST">
+                <label for="editItem">Price</label>
+                <input type="number" name="price" id="editItem">
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+
     <table>
         <thead>
             <tr>
@@ -48,14 +61,22 @@
             </tr>
         </thead>
         <tbody>
+            {% set remaining_budget = budget['total'] %}
             {% for item in items %}
                 <tr>
                     <td>{{ item['item_name'] }}</td>
-                    <td>{{ item['price'] }}</td>
+                    <td>${{ item['price'] }}</td>
+                    <td>{{ (item['price']/remaining_budget) * 100 | round }}%</td>
+                    <td>
+                        <button class="openEditItemModalBtn" data-id="{{ item.id }}">Edit</button>
+                        <a href="/delete-item/{{ item.id }}">Delete</a>
+                    </td>
                 </tr>
+                {% set remaining_budget = remaining_budget - item['price'] %}
             {% endfor %}
         </tbody>
     </table>
+
     <form action="/add-item" method="POST">
         <input type="text" name="item_name" placeholder="Add Item">
         <input type="number" name="price" placeholder="Add Price">

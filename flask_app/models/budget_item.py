@@ -30,6 +30,12 @@ class Budget_Items:
         return results
     
     @classmethod
+    def update_item(cls, data):
+        query = "UPDATE budget_items SET price = %(price)s WHERE id = %(id)s"
+        results = connectToMySQL(cls.db).query_db(query, data)
+        return results
+    
+    @classmethod
     def delete_item(cls, data):
         query = "DELETE FROM budget_items WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query, data)

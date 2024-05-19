@@ -33,8 +33,24 @@ def add_item():
     data = {
         "item_name": request.form['item_name'],
         "price": request.form['price'],
-        "user_id": 1  # Default user_id until you set up user authentication
+        "budget_id": 2  # Default user_id until you set up user authentication
     }
     print(data)
     Budget_Items.add_item(data)
+    return redirect('/budget')
+
+@app.route('/update-item/<int:id>', methods=['POST'])
+def update_item(id):
+    data = {
+        "id": id,
+        "price": request.form['price']
+    }
+    print("updated data: ", data)
+    Budget_Items.update_item(data)
+    return redirect('/budget')
+
+@app.route('/delete-item/<int:id>')
+def delete_item(id):
+    data = {"id": id}
+    Budget_Items.delete_item(data)
     return redirect('/budget')
