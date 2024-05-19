@@ -3,7 +3,7 @@ from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
 class Wedding:
-    db="planner_db"
+    db="wedding_schema"
     def __init__(self, data):
         self.id = data["id"]
         self.partner_name_1 = data["partner_name_1"]
