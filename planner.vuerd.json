@@ -741,9 +741,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1,
-          "top": 344,
-          "zIndex": 6,
+          "left": 13,
+          "top": 348,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },

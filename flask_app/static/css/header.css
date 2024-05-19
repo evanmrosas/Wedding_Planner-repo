@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Merienda', cursive;
+}
+
+.navbar-brand h1 {
+    font-family: 'Merienda', cursive;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #c4c4c4, #718469) !important;
+}
+
+.dropdown-menu, .btn {
+    background-color: #69a3e0 !important;
+}
+
+img{
+    border-radius: 10px;
+}
+
