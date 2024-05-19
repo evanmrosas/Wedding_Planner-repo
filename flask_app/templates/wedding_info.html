@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Wedding</title>
+</head>
+<body>
+    <a href="/wedding/info/edit">Edit Wedding Info</a>
+    <a href="/dashboard">Dashboard</a>
+    <table>
+        <tbody>
+            <tr>
+                <th>Partner #1: </th>
+                <td>{{wedding['partner_name_1']}}</td>
+            </tr>
+            <tr>
+                <th>Partner #2: </th>
+                <td>{{wedding['partner_name_2']}}</td>
+            </tr>
+            <tr>
+                <th>Location: </th>
+                <td>{{wedding['location']}}</td>
+            </tr>
+            <tr>
+                <th>Date: </th>
+                <td>{{wedding['date']}}</td>
+            </tr>
+            <tr>
+                <th>Reception: </th>
+                <td>{{wedding['reception']}}</td>
+            </tr>
+            <tr>
+                <th>Number of Guests: </th>
+                <td>{{wedding['total_guest']}}</td>
+            </tr>
+            <tr>
+                <th>Notes: </th>
+                <td>{{wedding['notes']}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

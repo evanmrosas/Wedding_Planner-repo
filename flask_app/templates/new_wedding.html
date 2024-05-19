@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Wedding</title>
+    
+</head>
+<body>
+    <div>
+        <form action="/add_wedding" method="post" name="wedding_info">
+            <div>
+                <label for="partner_name_1">Partner #1:</label>
+                <input type="text" name="partner_name_1" id="partner_name_1">
+                {% with errors = get_flashed_messages(category_filter=["partner_name_1"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="partner_name_2">Partner #2</label>
+                <input type="text" name="partner_name_2" id="partner_name_2">
+                {% with errors = get_flashed_messages(category_filter=["partner_name_2"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="location">Location: </label>
+                <input type="text" name="location" id="location">
+                {% with errors = get_flashed_messages(category_filter=["location"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="date">Date: </label>
+                <input type="date" name="date" id="date">
+                {% with errors = get_flashed_messages(category_filter=["date"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="reception">Reception: </label>
+                <input type="text" name="reception" id="reception">
+                {% with errors = get_flashed_messages(category_filter=["reception"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="total_guest">Number of Guests: </label>
+                <input type="number" name="total_guest" id="total_guest">
+                {% with errors = get_flashed_messages(category_filter=["total_guest"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="notes">Notes</label>
+                <textarea type="text" name="notes" id="notes"></textarea>
+            </div>
+            <div>
+                <input type="hidden" name="user_id" value="{{user.id}}" id="user_id">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+    <script> //found the structure for this at https://www.sitepoint.com/basic-jquery-form-validation-tutorial/
+        // Wait for the DOM to be ready
+        $(function() {
+        // Initialize form validation on the registration form.
+        $("form[name='wedding_info']").validate({
+            // Specify validation rules
+            rules: {
+            // The key name on the left side is the name attribute
+            // of an input field. Validation rules are defined
+            // on the right side
+            partner_name_1: {
+                required: true,
+                minlength: 2
+            },
+            partner_name_2: {
+                required: true,
+                minlength: 2
+            },
+            location: {
+                required: true,
+                minlength: 2
+            },
+            date: "required",
+            reception: {
+                required: true,
+                minlength: 2
+            },
+            total_guest: {
+                required: true,
+                min: 1
+            }
+            },
+            // Specify validation error messages
+            messages: {
+            partner_name_1: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            partner_name_2: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            location: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            date: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            reception: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            total_guest: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            },
+            // Make sure the form is submitted to the destination defined
+            // in the "action" attribute of the form when valid
+            submitHandler: function(form) {
+            form.submit();
+            }
+        });
+        });
+    </script>
+</body>
+</html>
