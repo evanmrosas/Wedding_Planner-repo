@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Rsvp</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            </div>
+        </div>
+    </div>
+    </nav>
+    <h1 class="mt-2">Rsvp List</h1>
+    <h2 class="ms-5 mb-4">Attending guests</h2>
+    <a class="ms-5" href="/guests/new">New Rsvp</a>
+    <div class="guestContainer">
+    <table class="table table-success table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+            
+        </tr>
+        {% for guest in guests %}
+        <tr>
+            <td>{{guest.first_name}}</td>
+            <td>{{guest.last_name}}</td>
+            <td>
+            
+                <a href="/guests/edit/{{guest.id}}">Edit</a>
+                <a href="/guests/delete/{{guest.id}}">Delete</a>
+            
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    
+</body>
+</html>

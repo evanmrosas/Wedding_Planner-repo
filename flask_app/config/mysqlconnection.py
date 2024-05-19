@@ -6,6 +6,8 @@ class MySQLConnection:
         # change the user and password as needed
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', 
+
+
                                     password = 'root', #---------------- add your password for MySQL here
                                     db = db,
                                     charset = 'utf8mb4',
