@@ -9,7 +9,6 @@ def wedding_info():
     if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
-    session['user_id'] = 1
     data = {'id' : session['user_id']}
     user = User.get_one_by_id(data)
     wedding = Wedding.get_all_for_user(session['user_id'])
