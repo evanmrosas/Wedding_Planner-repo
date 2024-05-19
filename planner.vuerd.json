@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
-    "scrollLeft": 0,
+    "scrollTop": -87,
+    "scrollLeft": -164,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -19,7 +19,7 @@
     },
     "database": "MySQL",
     "databaseName": "planners_db",
-    "canvasType": "ERD",
+    "canvasType": "@vuerd/builtin-sql-ddl",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
@@ -163,7 +163,7 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 649,
           "top": 463,
           "zIndex": 5,
@@ -953,8 +953,8 @@
           "columnIds": [
             "744a665f-247a-4f18-9895-e1a0ed0d7651"
           ],
-          "x": 246.177001953125,
-          "y": 348,
+          "x": 234.177001953125,
+          "y": 344,
           "direction": "top"
         },
         "constraintName": "fk_users_to_weddings",

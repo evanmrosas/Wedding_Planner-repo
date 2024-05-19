@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Wedding</title>
+</head>
+<body>
+    <div>
+        <form action="/edit_wedding" method="post">
+            <div>
+                <label for="partner_name_1" id="partner_name_1_label">Partner #1:</label>
+                <input type="text" name="partner_name_1" id="partner_name_1" value="{{wedding.partner_name_1}}" onkeyup="validateLength(this.id, 'valid_name')">
+                <label id="valid_name"></label>
+                {% with errors = get_flashed_messages(category_filter=["partner_name_1"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="partner_name_2" id="partner_name_2_label">Partner #2:</label>
+                <input type="text" name="partner_name_2" id="partner_name_2" value="{{wedding.partner_name_2}}" onkeyup="validateLength(this.id, 'valid_name_2')">
+                <label id="valid_name_2"></label>
+
+                {% with errors = get_flashed_messages(category_filter=["partner_name_2"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="location" id="location_label">Location: </label>
+                <textarea type="text" name="location" id="location" onkeyup="validateLength(this.id, 'valid_loc')">{{wedding.location}}</textarea>
+                <label id="valid_loc"></label>
+
+                {% with errors = get_flashed_messages(category_filter=["location"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+                
+            </div>
+            <div>
+                <label for="date" id="date_label">Date: </label>
+                <input type="date" name="date" id="date" value="{{wedding.date}}">
+                {% with errors = get_flashed_messages(category_filter=["date"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="reception" id="reception_label">Reception: </label>
+                <textarea type="text" name="reception" id="reception" onkeyup="validateLength(this.id, 'valid_rec')">{{wedding.reception}}</textarea>
+                <label id="valid_rec"></label>
+
+                {% with errors = get_flashed_messages(category_filter=["reception"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+                
+            </div>
+            <div>
+                <label for="total_guest" id="total_guest_label">Number of Guests: </label>
+                <input type="number" name="total_guest" id="total_guest" value="{{wedding.total_guest}}">
+                {% with errors = get_flashed_messages(category_filter=["total_guest"]) %}
+                    {% if errors %}
+                    <div class="">
+                        {%- for msg in errors %}
+                            <p>{{ msg }}</p>
+                        {% endfor -%}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div>
+                <label for="notes" id="notes_label">Notes</label>
+                <textarea type="text" name="notes" id="notes" value="{{wedding.notes}}"></textarea>
+            </div>
+            <div>
+                <input type="hidden" name="user_id" value="{{user.id}}" id="user_id">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+    <script> //found the structure for this at https://www.sitepoint.com/basic-jquery-form-validation-tutorial/
+        // Wait for the DOM to be ready
+        function validateLength(id, valid){
+            const source = document.getElementById(id);
+            const label = document.getElementById(source.name+"_label").innerText;
+            let length = document.getElementById(id).value.length;
+            if (length > 0 && length < 2){
+                document.getElementById(valid).innerText = label+" must be 2 characters or longer"
+            }
+            else{
+                document.getElementById(valid).innerText  = "";
+
+            }
+        }
+        
+    </script>
+</body>
+</html>
