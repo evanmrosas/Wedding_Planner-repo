@@ -1,0 +1,28 @@
+.card {
+
+    width: 700px;
+    
+}
+
+.guestContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    width: 800px;
+}
+
+.newGuestContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.editContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
