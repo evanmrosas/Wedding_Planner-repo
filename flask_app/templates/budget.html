@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Budget</h1>
-    <h2>Our Budget is: ${{ budget['total'] if budget else 'No budget set' }}</h2>
+    <h2>Our Budget is: {{ budget['total'] if budget else 'No budget set' }}</h2>
     {% if budget_exists %}
         <button id="openEditModalBtn">Edit Budget</button>
     {% else %}

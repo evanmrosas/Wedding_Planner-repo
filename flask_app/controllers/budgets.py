@@ -1,5 +1,5 @@
 from flask_app import app
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session, flash
 from flask_app.models.budget import Budget
 from flask_app.models.budget_item import Budget_Items
 
@@ -20,7 +20,7 @@ def add_budget():
         return redirect("/")
     data = {
         "total": request.form['total'],
-        "user_id": 1
+        "user_id": session['user_id']
     }
     Budget.add_budget(data)
     return redirect('/budget')
@@ -31,8 +31,8 @@ def update_budget():
         flash("Please log in.", "login")
         return redirect("/")
     data = {
+        "id": session['user_id'],
         "total": request.form['total'],
-        "id": 2  # Assuming you have only one budget entry, or you need to pass the correct budget id
     }
     Budget.update_budget(data)
     return redirect('/budget')
@@ -45,7 +45,7 @@ def add_item():
     data = {
         "item_name": request.form['item_name'],
         "price": request.form['price'],
-        "budget_id": 2  # Default user_id until you set up user authentication
+        "budget_id": session['user_id']
     }
     print(data)
     Budget_Items.add_item(data)

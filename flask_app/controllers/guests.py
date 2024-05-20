@@ -5,7 +5,7 @@ from flask_app.models import guest
 
 @app.route('/guests')
 def guest_dashboard():
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     guests = guest.Guest.get_all_guests()
@@ -14,7 +14,7 @@ def guest_dashboard():
 
 @app.route('/guests/new')
 def new_guest():
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     guests = guest.Guest.get_all_guests()
@@ -22,7 +22,7 @@ def new_guest():
 
 @app.route('/guests/create', methods=['POST'])
 def add_guest():
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     if not guest.Guest.validate_guest(request.form):
@@ -38,7 +38,7 @@ def add_guest():
 
 @app.route('/guests/edit/<int:id>')
 def edit_guest(id):
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     one_guest = guest.Guest.get_one_guest(id)
@@ -47,7 +47,7 @@ def edit_guest(id):
 
 @app.route('/guests/update/<int:id>', methods=['POST'])
 def update_guest(id):
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     if not guest.Guest.validate_guest(request.form):
@@ -62,7 +62,7 @@ def update_guest(id):
 
 @app.route('/guests/delete/<int:id>')
 def delete_guest(id):
-    if "userID" not in session:
+    if "user_id" not in session:
         flash("Please log in.", "login")
         return redirect("/")
     data={

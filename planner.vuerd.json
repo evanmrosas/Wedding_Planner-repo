@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -77,
-    "scrollLeft": 0,
+    "scrollTop": -161,
+    "scrollLeft": -182,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -18,8 +18,8 @@
       "relationship": true
     },
     "database": "MySQL",
-    "databaseName": "wedding_planner_db",
-    "canvasType": "ERD",
+    "databaseName": "wedding_schema",
+    "canvasType": "@vuerd/builtin-sql-ddl",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
@@ -167,7 +167,7 @@
           "active": false,
           "left": 649,
           "top": 463,
-          "zIndex": 40,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -219,6 +219,29 @@
               "fk": false,
               "pfk": false,
               "widthName": 62.68994140625,
+              "widthComment": 60,
+              "widthDataType": 94.955078125,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "1e366341-6de1-4555-81a9-c490381e21a3",
+            "name": "last_name",
+            "comment": "",
+            "dataType": "VARCHAR(255)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61.97900390625,
               "widthComment": 60,
               "widthDataType": 94.955078125,
               "widthDefault": 60
@@ -319,9 +342,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 653,
-          "top": 236,
-          "zIndex": 41,
+          "left": 651.8889,
+          "top": 204.8888,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -452,7 +475,7 @@
           "active": false,
           "left": 650,
           "top": 5,
-          "zIndex": 42,
+          "zIndex": 8,
           "widthName": 60,
           "widthComment": 60
         },
@@ -721,7 +744,7 @@
           "active": false,
           "left": 5.2223,
           "top": 390.2218,
-          "zIndex": 39,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -898,7 +921,7 @@
           "active": false,
           "left": 5.5557,
           "top": 38.8889,
-          "zIndex": 34,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -979,7 +1002,7 @@
             }
           },
           {
-            "id": "98241041-261e-4cc8-a756-e0aa949ec1a3",
+            "id": "b143cd6f-a0d7-4f37-ab26-281165289150",
             "name": "budget_id",
             "comment": "",
             "dataType": "INT",
@@ -1050,9 +1073,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1152.5552,
-          "top": 59.444,
-          "zIndex": 4,
+          "left": 1153.6663,
+          "top": 66.1106,
+          "zIndex": 14,
           "widthName": 80.05078125,
           "widthComment": 60
         },
@@ -1066,32 +1089,6 @@
   },
   "relationship": {
     "relationships": [
-      {
-        "id": "edd631e7-f8d6-4d44-a82a-f8d364a2f71e",
-        "identification": false,
-        "relationshipType": "OneN",
-        "startRelationshipType": "Dash",
-        "start": {
-          "tableId": "3c9048e6-29eb-4be1-a2c5-234e1940a760",
-          "columnIds": [
-            "64cf1d65-3351-4003-a46c-670ad76fa75a"
-          ],
-          "x": 1053.0234375,
-          "y": 90.75,
-          "direction": "right"
-        },
-        "end": {
-          "tableId": "f053759f-da61-43aa-89bf-7b2770367287",
-          "columnIds": [
-            "98241041-261e-4cc8-a756-e0aa949ec1a3"
-          ],
-          "x": 1152.5552,
-          "y": 155.44400000000002,
-          "direction": "left"
-        },
-        "constraintName": "fk_budget_to_budget_items",
-        "visible": true
-      },
       {
         "id": "dbc23167-ff06-4a39-baca-d5250969a2b4",
         "identification": false,
@@ -1163,8 +1160,8 @@
           "columnIds": [
             "61cf2c36-7a66-443b-aed6-7ed6e9dae299"
           ],
-          "x": 653,
-          "y": 332,
+          "x": 651.8889,
+          "y": 311.1388,
           "direction": "left"
         },
         "constraintName": "fk_users_to_guests",
@@ -1194,6 +1191,32 @@
           "direction": "left"
         },
         "constraintName": "fk_users_to_ gifts",
+        "visible": true
+      },
+      {
+        "id": "4dd8dcf4-e5da-41b3-80c9-738174cd7c01",
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "3c9048e6-29eb-4be1-a2c5-234e1940a760",
+          "columnIds": [
+            "64cf1d65-3351-4003-a46c-670ad76fa75a"
+          ],
+          "x": 1053.0234375,
+          "y": 90.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "f053759f-da61-43aa-89bf-7b2770367287",
+          "columnIds": [
+            "b143cd6f-a0d7-4f37-ab26-281165289150"
+          ],
+          "x": 1153.6663,
+          "y": 162.1106,
+          "direction": "left"
+        },
+        "constraintName": "fk_budget_to_budget_items",
         "visible": true
       }
     ]
