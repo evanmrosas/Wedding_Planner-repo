@@ -9,7 +9,7 @@ def budget_page():
         flash("Please log in.", "login")
         return redirect("/")
     budget = Budget.get_budget()
-    
+
     print("budget data", budget)
     items = Budget_Items.get_all_items()
     return render_template('budget.html', items=items, budget=budget, budget_exists=budget is not None)
@@ -32,7 +32,7 @@ def update_budget():
         flash("Please log in.", "login")
         return redirect("/")
     data = {
-        "id": session['user_id'],
+        "id": request.form['budget_id'],
         "total": request.form['total'],
     }
     Budget.update_budget(data)
@@ -46,7 +46,7 @@ def add_item():
     data = {
         "item_name": request.form['item_name'],
         "price": request.form['price'],
-        "budget_id": session['user_id']
+        "budget_id": request.form['budget_id']
     }
     print(data)
     Budget_Items.add_item(data)

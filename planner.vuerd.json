@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -77,
-    "scrollLeft": 0,
+    "scrollTop": -211,
+    "scrollLeft": -187,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -19,7 +19,7 @@
     },
     "database": "MySQL",
     "databaseName": "wedding_schema",
-    "canvasType": "@vuerd/builtin-sql-ddl",
+    "canvasType": "ERD",
     "language": "GraphQL",
     "tableCase": "pascalCase",
     "columnCase": "camelCase",
@@ -43,6 +43,7 @@
   "table": {
     "tables": [
       {
+        "id": "2a07a23c-4e4c-46c3-8ce6-02e5f0cc6f90",
         "name": " gifts",
         "comment": "",
         "columns": [
@@ -170,10 +171,10 @@
           "widthName": 60,
           "widthComment": 60
         },
-        "visible": true,
-        "id": "2a07a23c-4e4c-46c3-8ce6-02e5f0cc6f90"
+        "visible": true
       },
       {
+        "id": "1874c071-bdea-404f-87af-d30d0a97af9f",
         "name": "guests",
         "comment": "",
         "columns": [
@@ -347,10 +348,10 @@
           "widthName": 60,
           "widthComment": 60
         },
-        "visible": true,
-        "id": "1874c071-bdea-404f-87af-d30d0a97af9f"
+        "visible": true
       },
       {
+        "id": "3c9048e6-29eb-4be1-a2c5-234e1940a760",
         "name": "budget",
         "comment": "",
         "columns": [
@@ -478,10 +479,10 @@
           "widthName": 60,
           "widthComment": 60
         },
-        "visible": true,
-        "id": "3c9048e6-29eb-4be1-a2c5-234e1940a760"
+        "visible": true
       },
       {
+        "id": "caa8811a-71ec-4da9-9964-e201d240b697",
         "name": "weddings",
         "comment": "",
         "columns": [
@@ -747,10 +748,10 @@
           "widthName": 60,
           "widthComment": 60
         },
-        "visible": true,
-        "id": "caa8811a-71ec-4da9-9964-e201d240b697"
+        "visible": true
       },
       {
+        "id": "",
         "name": "users",
         "comment": "",
         "columns": [
@@ -924,10 +925,10 @@
           "widthName": 60,
           "widthComment": 60
         },
-        "visible": true,
-        "id": ""
+        "visible": true
       },
       {
+        "id": "f053759f-da61-43aa-89bf-7b2770367287",
         "name": "budget_items",
         "comment": "",
         "columns": [
@@ -1078,8 +1079,7 @@
           "widthName": 80.05078125,
           "widthComment": 60
         },
-        "visible": true,
-        "id": "f053759f-da61-43aa-89bf-7b2770367287"
+        "visible": true
       }
     ],
     "indexes": []
@@ -1090,6 +1090,7 @@
   "relationship": {
     "relationships": [
       {
+        "id": "edd631e7-f8d6-4d44-a82a-f8d364a2f71e",
         "identification": false,
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
@@ -1112,10 +1113,10 @@
           "direction": "left"
         },
         "constraintName": "fk_budget_to_budget_items",
-        "visible": true,
-        "id": "edd631e7-f8d6-4d44-a82a-f8d364a2f71e"
+        "visible": true
       },
       {
+        "id": "dbc23167-ff06-4a39-baca-d5250969a2b4",
         "identification": false,
         "relationshipType": "OneOnly",
         "startRelationshipType": "Dash",
@@ -1138,10 +1139,10 @@
           "direction": "left"
         },
         "constraintName": "fk_users_to_budget",
-        "visible": true,
-        "id": "dbc23167-ff06-4a39-baca-d5250969a2b4"
+        "visible": true
       },
       {
+        "id": "bc3e5d08-c920-433d-8088-ddb6b28419e7",
         "identification": false,
         "relationshipType": "OneOnly",
         "startRelationshipType": "Dash",
@@ -1164,10 +1165,10 @@
           "direction": "top"
         },
         "constraintName": "fk_users_to_weddings",
-        "visible": true,
-        "id": "bc3e5d08-c920-433d-8088-ddb6b28419e7"
+        "visible": true
       },
       {
+        "id": "d4adcb1e-277f-4ae4-bd3e-3589e50a9db6",
         "identification": false,
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
@@ -1185,15 +1186,15 @@
           "columnIds": [
             "61cf2c36-7a66-443b-aed6-7ed6e9dae299"
           ],
-          "x": 651.8889,
-          "y": 311.1388,
+          "x": 653,
+          "y": 342.25,
           "direction": "left"
         },
         "constraintName": "fk_users_to_guests",
-        "visible": true,
-        "id": "d4adcb1e-277f-4ae4-bd3e-3589e50a9db6"
+        "visible": true
       },
       {
+        "id": "bf041f49-3d1e-4a83-8022-eced8d241b63",
         "identification": false,
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
@@ -1216,8 +1217,7 @@
           "direction": "left"
         },
         "constraintName": "fk_users_to_ gifts",
-        "visible": true,
-        "id": "bf041f49-3d1e-4a83-8022-eced8d241b63"
+        "visible": true
       }
     ]
   }
