@@ -9,6 +9,7 @@ def budget_page():
         flash("Please log in.", "login")
         return redirect("/")
     budget = Budget.get_budget()
+    
     print("budget data", budget)
     items = Budget_Items.get_all_items()
     return render_template('budget.html', items=items, budget=budget, budget_exists=budget is not None)
