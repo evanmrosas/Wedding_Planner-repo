@@ -1,7 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 
 class Budget:
-    db = "wedding_planner_db"
+    db = "wedding_schema"
     def __init__(self, data):
         self.id = data['id']
         self.total = data['total']
