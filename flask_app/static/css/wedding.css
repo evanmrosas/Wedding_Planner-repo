@@ -1,0 +1,36 @@
+.weddingContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.card{
+    width:700px;
+    height: 700px;
+}
+
+.table {
+    width: 700px;
+}
+
+.weddingInfo{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editWedding{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    
+
+}
+
+.editContainer{
+    width:700px;
+    height:400px;
+}
+

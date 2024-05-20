@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/wedding.css">
     <title>Create Your Wedding</title>
 </head>
 <body>
-    <div>
+    <div class="editWedding">
+        <div class=" editContainer ">
+            <h1 class="card-header">Edit Wedding</h1>
+            <div class="">
         <form action="/edit_wedding" method="post">
-            <div>
+            <div class="">
                 <label for="partner_name_1" id="partner_name_1_label">Partner #1:</label>
-                <input type="text" name="partner_name_1" id="partner_name_1" value="{{wedding.partner_name_1}}" onkeyup="validateLength(this.id, 'valid_name')">
+                <input type="text" name="partner_name_1" id="partner_name_1" value="{{wedding.partner_name_1}}" onkeyup="validateLength(this.id, 'valid_name')" class="">
                 <label id="valid_name"></label>
                 {% with errors = get_flashed_messages(category_filter=["partner_name_1"]) %}
                     {% if errors %}
-                    <div class="">
+                    <div class="f">
                         {%- for msg in errors %}
                             <p>{{ msg }}</p>
                         {% endfor -%}
@@ -22,9 +27,9 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            <div>
+            <div class="">
                 <label for="partner_name_2" id="partner_name_2_label">Partner #2:</label>
-                <input type="text" name="partner_name_2" id="partner_name_2" value="{{wedding.partner_name_2}}" onkeyup="validateLength(this.id, 'valid_name_2')">
+                <input type="text" name="partner_name_2" id="partner_name_2" value="{{wedding.partner_name_2}}" onkeyup="validateLength(this.id, 'valid_name_2')" class="">
                 <label id="valid_name_2"></label>
 
                 {% with errors = get_flashed_messages(category_filter=["partner_name_2"]) %}
@@ -37,9 +42,9 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            <div>
+            <div class="">
                 <label for="location" id="location_label">Location: </label>
-                <textarea type="text" name="location" id="location" onkeyup="validateLength(this.id, 'valid_loc')">{{wedding.location}}</textarea>
+                <textarea type="text" name="location" id="location" onkeyup="validateLength(this.id, 'valid_loc')" class="">{{wedding.location}}</textarea>
                 <label id="valid_loc"></label>
 
                 {% with errors = get_flashed_messages(category_filter=["location"]) %}
@@ -53,9 +58,9 @@
                 {% endwith %}
                 
             </div>
-            <div>
+            <div class="">
                 <label for="date" id="date_label">Date: </label>
-                <input type="date" name="date" id="date" value="{{wedding.date}}">
+                <input type="date" name="date" id="date" value="{{wedding.date}}" class="">
                 {% with errors = get_flashed_messages(category_filter=["date"]) %}
                     {% if errors %}
                     <div class="">
@@ -66,9 +71,9 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            <div>
+            <div class="">
                 <label for="reception" id="reception_label">Reception: </label>
-                <textarea type="text" name="reception" id="reception" onkeyup="validateLength(this.id, 'valid_rec')">{{wedding.reception}}</textarea>
+                <textarea type="text" name="reception" id="reception" onkeyup="validateLength(this.id, 'valid_rec')" class="">{{wedding.reception}}</textarea>
                 <label id="valid_rec"></label>
 
                 {% with errors = get_flashed_messages(category_filter=["reception"]) %}
@@ -82,9 +87,9 @@
                 {% endwith %}
                 
             </div>
-            <div>
+            <div class="">
                 <label for="total_guest" id="total_guest_label">Number of Guests: </label>
-                <input type="number" name="total_guest" id="total_guest" value="{{wedding.total_guest}}">
+                <input type="number" name="total_guest" id="total_guest" value="{{wedding.total_guest}}" class="">
                 {% with errors = get_flashed_messages(category_filter=["total_guest"]) %}
                     {% if errors %}
                     <div class="">
@@ -95,9 +100,10 @@
                     {% endif %}
                 {% endwith %}
             </div>
-            <div>
+            <div class="">
+                
                 <label for="notes" id="notes_label">Notes</label>
-                <textarea type="text" name="notes" id="notes" value="{{wedding.notes}}"></textarea>
+                <textarea type="text" name="notes" id="notes" value="{{wedding.notes}}" class=""></textarea>
             </div>
             <div>
                 <input type="hidden" name="user_id" value="{{user.id}}" id="user_id">
@@ -105,6 +111,9 @@
             <input type="submit">
         </form>
     </div>
+    </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
