@@ -10,6 +10,12 @@
     justify-content: center;
 }
 
+.rsvpText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .table {
     width: 800px;
 }
