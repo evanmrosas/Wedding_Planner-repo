@@ -42,7 +42,7 @@
     </nav>
 
     <h1>Budget</h1>
-    <h2>Our Budget is: ${{ budget['total'] if budget else 'No budget set' }}</h2>
+    <h2>Our Budget is: {{ budget['total'] if budget else 'No budget set' }}</h2>
     {% if budget_exists %}
         <button id="openEditModalBtn">Edit Budget</button>
     {% else %}
@@ -68,6 +68,7 @@
             <form id="editBudgetForm" action="/update-budget" method="POST">
                 <label for="editTotal">Total Budget:</label>
                 <input type="number" id="editTotal" name="total" placeholder="Enter new budget">
+                <input type="hidden" name="budget_id" value={{budget.id}}>
                 <input type="submit" value="Save">
             </form>
         </div>
@@ -114,6 +115,7 @@
     <form action="/add-item" method="POST">
         <input type="text" name="item_name" placeholder="Add Item">
         <input type="number" name="price" placeholder="Add Price">
+        <input type="hidden" name="budget_id" value={{budget.id}}>
         <input type="submit" value="Add">
     </form>
 
