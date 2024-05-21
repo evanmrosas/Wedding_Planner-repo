@@ -20,6 +20,7 @@ def login_form():
     print('====IN LOGIN ROUTE====')
     return render_template('/login.html')
 
+
 @app.route('/register', methods=['POST'])
 def register():
     print('==== in register post route ====')
