@@ -7,11 +7,17 @@
 
 .card{
     width:700px;
-    height: 700px;
+    height: 650px;
 }
 
 .table {
     width: 700px;
+}
+
+.weddingInfoText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .weddingInfo{
@@ -24,8 +30,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-
-    
 
 }
 

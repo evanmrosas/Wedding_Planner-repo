@@ -40,9 +40,11 @@
                 </div>
         </div>
     </nav>
-
-    <h1>Budget</h1>
-    <h2>Our Budget is: {{ budget['total'] if budget else 'No budget set' }}</h2>
+    <div class="budgetText">
+        <h1 class="mt-4">Budget</h1>
+        <h2>Our Budget is: {{ budget['total'] if budget else 'No budget set' }}</h2>
+    </div>
+    <div class="">
     {% if budget_exists %}
         <button id="openEditModalBtn">Edit Budget</button>
     {% else %}
@@ -118,6 +120,7 @@
         <input type="hidden" name="budget_id" value={{budget.id}}>
         <input type="submit" value="Add">
     </form>
+</div>
 
     <script src="{{ url_for('static', filename='js/budget.js') }}"></script>
 </body>
