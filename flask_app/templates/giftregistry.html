@@ -46,12 +46,13 @@
 
     <div class="container d-flex justify-content-center">
         <div class="all-gifts m-5">
-            <h2 class="m-4">Current Gift Registry</h2>
+            <h2 class="m-4 text-center">Current Gift Registry</h2>
+            <btn class="" btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
             <table class="table table-bordered table-hover">
                 <thead class="bth-warning">
                     <tr>
-                        <th scope="col">Gift </th>
-                        <th scope="col">Actions</th>
+                        <th class="table-success" scope="col">Gift </th>
+                        <th class="table-success" scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,9 +60,11 @@
                     <tr>    
                         <td scope="col">{{gift.gift_name}}</td>
                         <td scope="col">                    
+                            <div class="btn-group">
                             <a href="{{ url_for("edit_gift", id=gift.id) }}">Edit</a> |
                             <form action="/giftregistry/delete/{{gift.id}}" method="post">
                                 <button class="btn btn-danger">Delete</button>
+                            </div>
                             </form>
                         </td>
                     </tr>
@@ -69,7 +72,7 @@
                 </tbody>
             </table>
         </div>
-        <btn btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
+        
     </div>
 </body>
 </html>

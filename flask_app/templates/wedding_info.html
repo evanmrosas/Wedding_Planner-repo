@@ -45,12 +45,15 @@
 
     
 
-    <h1 class="mt-4">Wedding Info</h1>
+    <h1 class="mt-4 mb-4 text-center">Wedding Info</h1>
+    <a class="align-items-center" href="/wedding/info/edit">Edit Wedding Info</a>
     <div class="weddingInfo">
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-borderless">
         <tbody>
+            <th class="table-success"></th>
+            <th class="table-success"></th>
             <tr>
-                <th class="table-success">Partner #1: </th>
+                <th class="">Partner #1: </th>
                 <td>{{wedding['partner_name_1']}}</td>
             </tr>
             <tr>
@@ -77,9 +80,11 @@
                 <th>Notes: </th>
                 <td>{{wedding['notes']}}</td>
             </tr>
+            <th class="table-success"></th>
+            <th class="table-success"></th>
         </tbody>
     </table>
 </div>
-<a href="/wedding/info/edit">Edit Wedding Info</a>
+
 </body>
 </html>
