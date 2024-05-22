@@ -33,3 +33,13 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.budgetText{
+    text-align: center;
+}
+
+.budgetContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

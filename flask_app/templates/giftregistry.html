@@ -4,17 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/wedding.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/header.css"> 
+    <link rel="stylesheet" href="../static/css/wedding.css">
+    <link rel="stylesheet" href="../static/css/gift.css">
     <title>Gift Registry</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-gradient" style="background-image: linear-gradient(to right, #ff9966, #ff5e62);">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../static/images/header.jpg" alt="flowers" width="50" height="50" class="d-inline-block align-text-top me-2">
+                <h1 class="h2 mb-0">The Perfect Pair</h1>
+            </a>
+            <div class="btn-group">
+                <button class="btn btn-lg" type="button">
+                    Your Concierge
+                    </button>
+                    <button type="button" class="btn btn-lg dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/wedding/info" class="dropdown-item">Our Wedding</a></li>
+                        <li><a href="/budget" class="dropdown-item">Budgeting</a></li>
+                        <li><a href="#" class="dropdown-item">Inspiration</a></li>
+                        <li><a href="#" class="dropdown-item">Photos</a></li>
+                        <li><a href="/giftregistry" class="dropdown-item">Gift Reg</a></li>
+                        <li><a href="/guests" class="dropdown-item">RSVP List</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a href="/logout" class="dropdown-item">Logout</a></li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+
     <div class="container d-flex justify-content-center">
-        <div class="all-gifts m-5">
-            <h2 class="m-4">Current Gift Registry</h2>
+        <div class="all-gifts m-4">
+            <div class="giftText">
+            <h2 class="m-4 text-center">Current Gift Registry</h2>
+            <btn class="mt-2" btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
+        </div>
             <table class="table table-bordered table-hover">
                 <thead class="bth-warning">
                     <tr>
-                        <th scope="col">Gift </th>
-                        <th scope="col">Actions</th>
+                        <th class="table-success" scope="col">Gift </th>
+                        <th class="table-success" scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,9 +63,11 @@
                     <tr>    
                         <td scope="col">{{gift.gift_name}}</td>
                         <td scope="col">                    
+                            <div class="btn-group">
                             <a href="{{ url_for("edit_gift", id=gift.id) }}">Edit</a> |
                             <form action="/giftregistry/delete/{{gift.id}}" method="post">
                                 <button class="btn btn-danger">Delete</button>
+                            </div>
                             </form>
                         </td>
                     </tr>
@@ -32,7 +75,7 @@
                 </tbody>
             </table>
         </div>
-        <btn btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
+        
     </div>
 </body>
 </html>
