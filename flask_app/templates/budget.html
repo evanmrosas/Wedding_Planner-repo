@@ -67,7 +67,11 @@
                 <tr>
                     <td>{{ item['item_name'] }}</td>
                     <td>${{ item['price'] }}</td>
-                    <td>{{ (item['price']/remaining_budget) * 100 | round }}%</td>
+                    {% if remaining_budget == 0 %}
+                        <td>N/A</td>
+                    {% else %}
+                        <td>{{ (item['price'] / remaining_budget) * 100 | round }}%</td>
+                    {% endif %}
                     <td>
                         <button class="openEditItemModalBtn" data-id="{{ item.id }}">Edit</button>
                         <a href="/delete-item/{{ item.id }}">Delete</a>
