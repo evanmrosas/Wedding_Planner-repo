@@ -1,7 +1,7 @@
 .card {
 
     width: 700px;
-    
+    border: 25px solid #c4c4c4 !important;
 }
 
 .guestContainer{

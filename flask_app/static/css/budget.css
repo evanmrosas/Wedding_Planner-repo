@@ -1,3 +1,76 @@
+
+
+
+/* budget.css */
+
+body {
+    font-family: 'Merienda', cursive;
+    background-color: #f8f9fa;
+}
+
+.content-wrapper {
+    max-width: 690px; /* 15% wider */
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 25px solid #c4c4c4; /* Set border color to pastel green */
+}
+
+.card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 25px solid #c3e6cb; /* Set border color to pastel green */
+    text-align: center; /* Center the text inside the card */
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.btn-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.editbutton {
+    width: 120px; /* Set button width to auto */
+    background-color: #c3e6cb; /* Set button color to pastel green */
+}
+
+table {
+    width: 100%; /* 15% wider than the parent container */
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #c3e6cb; /* Set border color to pastel green */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
+
 .modal {
     display: none;
     position: fixed;
