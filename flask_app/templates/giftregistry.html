@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/header.css"> 
     <link rel="stylesheet" href="../static/css/wedding.css">
+    <link rel="stylesheet" href="../static/css/gift.css">
     <title>Gift Registry</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/wedding/info" class="dropdown-item">Our Wedding</a></li>
                         <li><a href="/budget" class="dropdown-item">Budgeting</a></li>
-                        <li><a href="#" class="dropdown-item">Insperation</a></li>
+                        <li><a href="#" class="dropdown-item">Inspiration</a></li>
                         <li><a href="#" class="dropdown-item">Photos</a></li>
                         <li><a href="/giftregistry" class="dropdown-item">Gift Reg</a></li>
                         <li><a href="/guests" class="dropdown-item">RSVP List</a></li>
@@ -46,9 +47,11 @@
     </nav>
 
     <div class="container d-flex justify-content-center">
-        <div class="all-gifts m-5">
+        <div class="all-gifts m-4">
+            <div class="giftText">
             <h2 class="m-4 text-center">Current Gift Registry</h2>
-            <btn class="" btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
+            <btn class="mt-2" btn-primary><a href="/giftregistry/new">Add Gift</a></btn>
+        </div>
             <table class="table table-bordered table-hover">
                 <thead class="bth-warning">
                     <tr>

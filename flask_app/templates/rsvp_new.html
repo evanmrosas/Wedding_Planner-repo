@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/wedding/info" class="dropdown-item">Our Wedding</a></li>
                         <li><a href="/budget" class="dropdown-item">Budgeting</a></li>
-                        <li><a href="#" class="dropdown-item">Insperation</a></li>
+                        <li><a href="#" class="dropdown-item">Inspiration</a></li>
                         <li><a href="#" class="dropdown-item">Photos</a></li>
                         <li><a href="/giftregistry" class="dropdown-item">Gift Reg</a></li>
                         <li><a href="/guests" class="dropdown-item">RSVP List</a></li>
@@ -48,7 +48,7 @@
     
     <div class="newGuestContainer">
     <div class="card mt-4">
-        <h1 class="card-header">Rsvp Guest</h1>
+        <h1 class="card-header bg bg-gradient">Rsvp Guest</h1>
         <div class="card-body">
         <form action="/guests/create" method="post">
             {% with messages = get_flashed_messages(category_filter=['guest']) %}
@@ -85,7 +85,7 @@
                 </form> 
             </div>
         </form>
-        <a href="/guests">Back to Guest Dashboard</a>
+        <a class=" ms-3 mb-2" href="/guests">Back to Guest Dashboard</a>
     </div>
 </div>
 </div>
