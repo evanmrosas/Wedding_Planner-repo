@@ -1,0 +1,28 @@
+body {
+    font-family: 'Merienda', cursive;
+}
+
+.welcome-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #718469;
+}
+
+.center-links {
+    text-align: center;
+}
+
+.center-links a {
+    margin: 10px 0;
+    background-color: #ff9966;
+    border-color: #ff5e62;
+    color: white;
+    width: 200px;
+    text-align: center;
+}
+
+.center-links a:hover {
+    background-color: #ff5e62;
+    border-color: #ff9966;
+    color: white;
+}

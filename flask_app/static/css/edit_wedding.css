@@ -1,0 +1,8 @@
+.editContainer {
+    width: 50%; /* Shorten the width of the form by 10% */
+    margin-top: 10px;
+    border: 20px solid #c4c4cc; /* Add a border with color changes */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    padding: 20px; /* Optional: Add padding inside the border */
+    box-shadow: 6px 6px 4px rgba(0,0,0,0.1); /* Add a box shadow */
+}
